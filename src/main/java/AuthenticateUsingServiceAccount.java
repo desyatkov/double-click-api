@@ -3,7 +3,6 @@ import com.google.api.client.googleapis.auth.oauth2.GoogleCredential;
 import com.google.api.services.dfareporting.Dfareporting;
 import com.google.api.services.dfareporting.DfareportingScopes;
 import com.google.api.services.dfareporting.model.*;
-import com.google.common.base.Strings;
 import com.google.common.collect.ImmutableSet;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.Unirest;
