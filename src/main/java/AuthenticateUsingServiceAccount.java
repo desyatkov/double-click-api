@@ -32,20 +32,14 @@ public class AuthenticateUsingServiceAccount extends JSONArray {
         GoogleCredential credential =
                 GoogleCredential.fromStream(new FileInputStream(AuthenticateUsingServiceAccount.PATH_TO_JSON_FILE));
 
-        if (Strings.isNullOrEmpty(AuthenticateUsingServiceAccount.EMAIL_TO_IMPERSONATE)) {
-            credential = credential
-                    .createScoped(OAUTH_SCOPES);
-        } else {
-            credential =
-                    new GoogleCredential.Builder()
-                            .setTransport(credential.getTransport())
-                            .setJsonFactory(credential.getJsonFactory())
-                            .setServiceAccountId(credential.getServiceAccountId())
-                            .setServiceAccountPrivateKey(credential.getServiceAccountPrivateKey())
-                            .setServiceAccountScopes(OAUTH_SCOPES)
-                            .setServiceAccountUser(AuthenticateUsingServiceAccount.EMAIL_TO_IMPERSONATE)
-                            .build();
-        }
+        credential = new GoogleCredential.Builder()
+                        .setTransport(credential.getTransport())
+                        .setJsonFactory(credential.getJsonFactory())
+                        .setServiceAccountId(credential.getServiceAccountId())
+                        .setServiceAccountPrivateKey(credential.getServiceAccountPrivateKey())
+                        .setServiceAccountScopes(OAUTH_SCOPES)
+                        .setServiceAccountUser(AuthenticateUsingServiceAccount.EMAIL_TO_IMPERSONATE)
+                        .build();
 
         return credential;
     }
