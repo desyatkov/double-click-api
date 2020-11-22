@@ -1,0 +1,4 @@
+.env
+.idea/
+compainmanagerapi-*.json
+target/
